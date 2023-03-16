@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#Edit this to your correct volume name for the PlexMediaServer directory.
+volumeName="/volume1"
+
+#File directory of Preferences.xml file
+prefFile="${volumeName}/PlexMediaServer/AppData/Plex Media Server/Preferences.xml"
+
 # If we are debugging, enable trace
 if [ "${DEBUG,,}" = "true" ]; then
   set -x
@@ -24,8 +30,6 @@ function setPref {
 }
 
 home="$(echo ~plex)"
-pmsApplicationSupportDir="${PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR:-${home}/Library/Application Support}"
-prefFile="${pmsApplicationSupportDir}/Plex Media Server/Preferences.xml"
 
 PLEX_CLAIM="$1"
 
